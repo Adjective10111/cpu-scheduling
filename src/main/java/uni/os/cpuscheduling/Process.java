@@ -26,15 +26,31 @@ public class Process {
 		this(id_generator, arrival_time, priority, burst_time);
 	}
 	
+	public int getArrival_time() {
+		return arrival_time;
+	}
+	
+	public int getPriority() {
+		return priority;
+	}
+	
+	public int getSpanTime() {
+		return span_time;
+	}
+	
+	public boolean isDone() {
+		return execution_time == burst_time;
+	}
+	
 	public static void execute(Process process) {
 		if (process.execution_time == 0)
 			process.span_time = OperatingSystem.time;
-		if (process.execution_time < process.burst_time)
+		
+		if (process.execution_time < process.burst_time) {
 			process.execution_time++;
-		else
-			return;
-		if (process.execution_time == process.burst_time)
-			process.span_time += process.burst_time;
+			if (process.execution_time == process.burst_time)
+				process.span_time += process.burst_time;
+		}
 	}
 }
 
