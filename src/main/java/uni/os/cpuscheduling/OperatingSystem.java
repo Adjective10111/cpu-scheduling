@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 public class OperatingSystem {
-	private int time = 0;
-	private ArrayList<Process> processes;
-	private Queue<Process> ready;
+	public static int time = 0;
+	public static ArrayList<Process> processes;
+	public static Queue<Process> ready;
 	
 	public OperatingSystem() {
 		processes = RequestGenerator.readProcessData();
