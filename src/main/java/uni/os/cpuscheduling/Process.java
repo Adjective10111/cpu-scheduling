@@ -9,19 +9,33 @@ public class Process {
 	public int arrival_time;
 	private int priority;
 	private int burst_time;
+	private int execution_time;
+	private int span_time;
 	
-	Process(int id, int arrival_time, int priority, int burst_time) {
+	public Process(int id, int arrival_time, int priority, int burst_time) {
 		this.id = id;
 		id_generator = id + 1;
 		this.arrival_time = arrival_time;
 		this.priority = priority;
 		this.burst_time = burst_time;
+		execution_time = 0;
+		span_time = 0;
 	}
 	
-	Process(int arrival_time, int priority, int burst_time) {
-		this(id_generator++, arrival_time, priority, burst_time);
+	public Process(int arrival_time, int priority, int burst_time) {
+		this(id_generator, arrival_time, priority, burst_time);
 	}
 	
+	public static void execute(Process process) {
+		if (process.execution_time == 0)
+			process.span_time = OperatingSystem.time;
+		if (process.execution_time < process.burst_time)
+			process.execution_time++;
+		else
+			return;
+		if (process.execution_time == process.burst_time)
+			process.span_time += process.burst_time;
+	}
 }
 
 class ProcessComparator implements Comparator<Process> {
