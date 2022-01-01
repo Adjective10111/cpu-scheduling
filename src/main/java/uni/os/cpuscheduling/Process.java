@@ -12,6 +12,7 @@ public class Process {
 	
 	Process(int id, int arrival_time, int priority, int burst_time) {
 		this.id = id;
+		id_generator = id + 1;
 		this.arrival_time = arrival_time;
 		this.priority = priority;
 		this.burst_time = burst_time;
