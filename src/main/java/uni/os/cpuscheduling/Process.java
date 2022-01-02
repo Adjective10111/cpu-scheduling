@@ -2,7 +2,7 @@ package uni.os.cpuscheduling;
 
 import java.util.Comparator;
 
-public class Process {
+public class Process implements Comparable<Process> {
 	private static int id_generator = 1;
 	
 	private final int id;
@@ -56,6 +56,11 @@ public class Process {
 			if (process.execution_time == process.burst_time)
 				process.span_time += process.burst_time;
 		}
+	}
+	
+	@Override
+	public int compareTo(Process other) {
+		return arrival_time - other.arrival_time;
 	}
 }
 

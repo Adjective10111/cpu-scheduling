@@ -1,10 +1,13 @@
 package uni.os.cpuscheduling;
 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class RequestGenerator {
 	public static Queue<Process> readProcessData() {
-		return null;
+		ArrayList<Process> processes = new ArrayList<>();
+		return new PriorityQueue<Process>(processes);
 	}
 	public static Queue<Process> readProcessData(String filename) {
 		return null;
