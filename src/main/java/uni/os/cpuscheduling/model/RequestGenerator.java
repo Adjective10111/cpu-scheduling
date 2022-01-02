@@ -13,9 +13,9 @@ public class RequestGenerator {
 				int randomArrival = ThreadLocalRandom.current().nextInt(0, 3000000 + 1);
 				int randomBurst = ThreadLocalRandom.current().nextInt(1, 30 + 1);
 				if(i==0){
-					writeCSV.format("%s,%s,%s,%s\n","ID", "Priority", "ArrivalTime", "BurstTime");
+					writeCSV.format("%s,%s,%s,%s\n","ID", "ArrivalTime", "Priority", "BurstTime");
 				}else{
-					writeCSV.format("%d,%d,%d,%d\n", i, randomPriority, randomArrival, randomBurst );
+					writeCSV.format("%d,%d,%d,%d\n", i, randomArrival, randomPriority, randomBurst );
 				}
 			}
 			writeCSV.close();
