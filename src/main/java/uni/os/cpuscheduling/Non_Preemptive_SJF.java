@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling.downloaded;
+package uni.os.cpuscheduling;
 // Java program to implement Shortest Job first with Arrival
 // Time
 

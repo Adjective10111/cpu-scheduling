@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling;
+package uni.os.cpuscheduling.model;
 
 import java.io.File;
 import java.util.*;

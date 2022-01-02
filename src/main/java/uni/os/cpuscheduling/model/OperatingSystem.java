@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling;
+package uni.os.cpuscheduling.model;
 
 import java.util.ArrayList;
 import java.util.Queue;
@@ -35,7 +35,8 @@ public class OperatingSystem {
 	
 	private static void checkProcesses() {
 		addProcesses();
-//		check what to do
+		for (var algorithm : algorithms)
+			algorithm.process();
 	}
 	
 	private static void addProcesses() {

@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling;
+package uni.os.cpuscheduling.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

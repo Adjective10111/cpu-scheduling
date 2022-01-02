@@ -1,6 +1,4 @@
-package uni.os.cpuscheduling;
-
-import java.util.Comparator;
+package uni.os.cpuscheduling.model;
 
 public class Process implements Comparable<Process> {
 	private static int id_generator = 1;
@@ -61,12 +59,5 @@ public class Process implements Comparable<Process> {
 	@Override
 	public int compareTo(Process other) {
 		return arrival_time - other.arrival_time;
-	}
-}
-
-class ProcessComparator implements Comparator<Process> {
-	@Override
-	public int compare(Process p1, Process p2) {
-		return p1.arrival_time - p2.arrival_time;
 	}
 }

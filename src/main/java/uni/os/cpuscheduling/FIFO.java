@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling.downloaded;
+package uni.os.cpuscheduling;
 
 // Java program for implementation of FCFS
 // scheduling with different arrival time
