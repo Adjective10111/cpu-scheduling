@@ -17,17 +17,11 @@ public class OperatingSystem {
 		run();
 	}
 	
-	private static void addProcesses() {
-		while (processes.peek() != null && processes.peek().arrival_time == time) {
-			Process new_process = processes.poll();
-			for (var algorithm : algorithms)
-				algorithm.getNewProcess(new_process);
+	private static void run() {
+		while (!processes.isEmpty()) {
+			advance();
+			checkProcesses();
 		}
-	}
-	
-	private static void checkProcesses() {
-		addProcesses();
-//		check what to do
 	}
 	
 	private static void advance() {
@@ -39,10 +33,16 @@ public class OperatingSystem {
 		time++;
 	}
 	
-	private static void run() {
-		while (!processes.isEmpty()) {
-			advance();
-			checkProcesses();
+	private static void checkProcesses() {
+		addProcesses();
+//		check what to do
+	}
+	
+	private static void addProcesses() {
+		while (processes.peek() != null && processes.peek().arrival_time == time) {
+			Process new_process = processes.poll();
+			for (var algorithm : algorithms)
+				algorithm.getNewProcess(new_process);
 		}
 	}
 }
