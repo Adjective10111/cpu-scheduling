@@ -5,10 +5,10 @@ import java.util.Comparator;
 public class Process {
 	private static int id_generator = 1;
 	
-	private int id;
-	public int arrival_time;
-	private int priority;
-	private int burst_time;
+	private final int id;
+	public final int arrival_time;
+	private final int priority;
+	private final int burst_time;
 	
 	private int execution_time;
 	private int span_time;
