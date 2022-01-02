@@ -63,10 +63,3 @@ public class Process implements Comparable<Process> {
 		return arrival_time - other.arrival_time;
 	}
 }
-
-class ProcessComparator implements Comparator<Process> {
-	@Override
-	public int compare(Process p1, Process p2) {
-		return p1.arrival_time - p2.arrival_time;
-	}
-}
