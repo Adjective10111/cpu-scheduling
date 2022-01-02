@@ -4,18 +4,20 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 public class OperatingSystem {
-	public static int time = 0;
 	public static Queue<Process> processes;
 	public static ArrayList<SchedulingAlgorithm> algorithms;
+	public static int time = 0;
 	public static boolean running = true;
 	
 	public static void init() {
 		processes = RequestGenerator.readProcessData();
+		time = 0;
 		running = true;
 		run();
 	}
 	public static void init(String manualData) {
 		processes = RequestGenerator.readProcessData(manualData);
+		time = 0;
 		running = true;
 		run();
 	}
