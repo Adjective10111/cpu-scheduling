@@ -9,9 +9,13 @@ public class Process {
 	public int arrival_time;
 	private int priority;
 	private int burst_time;
+	
 	private int execution_time;
 	private int span_time;
 	
+	public Process(int arrival_time, int priority, int burst_time) {
+		this(id_generator, arrival_time, priority, burst_time);
+	}
 	public Process(int id, int arrival_time, int priority, int burst_time) {
 		this.id = id;
 		id_generator = id + 1;
@@ -21,23 +25,24 @@ public class Process {
 		execution_time = 0;
 		span_time = 0;
 	}
-	
-	public Process(int arrival_time, int priority, int burst_time) {
-		this(id_generator, arrival_time, priority, burst_time);
+	public Process(Process other) {
+		this.id = other.id;
+		this.arrival_time = other.arrival_time;
+		this.priority = other.priority;
+		this.burst_time = other.burst_time;
+		this.execution_time = 0;
+		this.span_time = 0;
 	}
 	
 	public int getArrival_time() {
 		return arrival_time;
 	}
-	
 	public int getPriority() {
 		return priority;
 	}
-	
 	public int getSpanTime() {
 		return span_time;
 	}
-	
 	public boolean isDone() {
 		return execution_time == burst_time;
 	}
