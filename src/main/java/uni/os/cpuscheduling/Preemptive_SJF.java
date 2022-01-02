@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling.downloaded;
+package uni.os.cpuscheduling;
 // Java program to implement Shortest Remaining Time First
 // Shortest Remaining Time First (SRTF)
 

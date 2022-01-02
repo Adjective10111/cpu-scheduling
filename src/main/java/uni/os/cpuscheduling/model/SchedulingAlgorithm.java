@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling;
+package uni.os.cpuscheduling.model;
 
 public interface SchedulingAlgorithm {
 	void getNewProcess(Process process);

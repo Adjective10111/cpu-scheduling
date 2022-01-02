@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling.downloaded;
+package uni.os.cpuscheduling;
 //JAVA Program for implementing
 //Round Robin Algorithm
 // code by Sparsh_cbs

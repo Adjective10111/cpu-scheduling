@@ -1,6 +1,4 @@
-package uni.os.cpuscheduling;
-
-import java.util.Comparator;
+package uni.os.cpuscheduling.model;
 
 public class Process implements Comparable<Process> {
 	private static int id_generator = 1;

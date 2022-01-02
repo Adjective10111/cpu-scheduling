@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling;
+package uni.os.cpuscheduling.model;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
