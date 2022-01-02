@@ -4,21 +4,26 @@ import java.util.ArrayList;
 import java.util.Queue;
 
 public class OperatingSystem {
-	public static int time = 0;
 	public static Queue<Process> processes;
 	public static ArrayList<SchedulingAlgorithm> algorithms;
+	public static int time = 0;
+	public static boolean running = true;
 	
 	public static void init() {
 		processes = RequestGenerator.readProcessData();
+		time = 0;
+		running = true;
 		run();
 	}
 	public static void init(String manualData) {
 		processes = RequestGenerator.readProcessData(manualData);
+		time = 0;
+		running = true;
 		run();
 	}
 	
 	private static void run() {
-		while (!processes.isEmpty()) {
+		while (running) {
 			advance();
 			checkProcesses();
 		}
@@ -40,7 +45,7 @@ public class OperatingSystem {
 	}
 	
 	private static void addProcesses() {
-		while (processes.peek() != null && processes.peek().arrival_time == time) {
+		while (!processes.isEmpty() && processes.peek().arrival_time == time) {
 			Process new_process = processes.poll();
 			for (var algorithm : algorithms)
 				algorithm.getNewProcess(new_process);
