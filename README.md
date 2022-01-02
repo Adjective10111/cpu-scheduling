@@ -1,4 +1,4 @@
-# cpu-scheduling
+# CPU Scheduling
 
 OS project:
 
