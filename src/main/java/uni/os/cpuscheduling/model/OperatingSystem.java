@@ -24,8 +24,8 @@ public class OperatingSystem {
 	
 	private static void run() {
 		while (running) {
-			advance();
 			checkProcesses();
+			advance();
 		}
 	}
 	
