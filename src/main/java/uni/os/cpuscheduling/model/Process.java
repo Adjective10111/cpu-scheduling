@@ -70,6 +70,11 @@ public class Process implements Comparable<Process> {
 				process.span_time[FINISH] = OperatingSystem.time;
 		}
 	}
+
+	public int getRemainingBurstTme(){
+		return burst_time - execution_time;
+	}
+
 	@Override
 	public int compareTo(Process other) {
 		return arrival_time - other.arrival_time;
