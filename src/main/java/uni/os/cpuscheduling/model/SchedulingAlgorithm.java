@@ -9,7 +9,10 @@ public interface SchedulingAlgorithm {
 	void process();
 	private Process[] getProcesses() { return null; }
 	
-	double calcThroughput();
+	default double calcThroughput() {
+		// todo this function is empty
+		return 0.0;
+	}
 	default int calcAverageWaitingTime() {
 		try {
 			return calcAverage(Process.class.getMethod(Process.GET_WAITING_TIME));
