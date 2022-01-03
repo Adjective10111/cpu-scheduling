@@ -5,9 +5,9 @@ import java.lang.reflect.Method;
 
 public interface SchedulingAlgorithm {
 	void getNewProcess(Process process);
-	private void selectProcess() { }
+	void selectProcess();
 	void process();
-	private Process[] getProcesses() { return null; }
+	Process[] getProcesses();
 	
 	default double calcThroughput() {
 		// todo this function is empty
