@@ -18,7 +18,6 @@ public class RequestGenerator {
 			e.printStackTrace();
 		}
 	}
-	
 	private static void generateProcessData(Formatter writer) {
 		writer.format("%s,%s,%s,%s\n", "ID", "ArrivalTime", "Priority", "BurstTime");
 		for (int process_id = 1; process_id <= number_of_processes; process_id++) {
@@ -46,8 +45,6 @@ public class RequestGenerator {
 			return null;
 		}
 	}
-	
-	
 	public static Queue<Process> readProcessData(String filename) {
 		try {
 			var readingCSV = new Scanner(new File(filename));
@@ -61,7 +58,6 @@ public class RequestGenerator {
 			return null;
 		}
 	}
-	
 	private static ArrayList<Process> readProcessData(Scanner reader) {
 		// skip the info line
 		reader.nextLine();
