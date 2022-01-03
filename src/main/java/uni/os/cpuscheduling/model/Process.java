@@ -74,4 +74,8 @@ public class Process implements Comparable<Process> {
 	public int compareTo(Process other) {
 		return arrival_time - other.arrival_time;
 	}
+
+	public int compareByBurstTimeTo(Process other) {
+		return burst_time - other.burst_time;
+	}
 }
