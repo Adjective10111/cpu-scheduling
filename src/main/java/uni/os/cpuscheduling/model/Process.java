@@ -14,7 +14,7 @@ public class Process implements Comparable<Process> {
 	private final int burst_time;
 	
 	private int execution_time;
-	private int[ ] span_time;
+	private final int[ ] span_time;
 	
 	public Process(int arrival_time, int priority, int burst_time) {
 		this(id_generator, arrival_time, priority, burst_time);
