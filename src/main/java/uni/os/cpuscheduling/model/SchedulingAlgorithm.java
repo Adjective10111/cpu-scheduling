@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 public interface SchedulingAlgorithm {
 	void getNewProcess(Process process);
 	void selectProcess();
+	boolean hasPendingProcess();
 	void process();
 	Process[] getProcesses();
 	

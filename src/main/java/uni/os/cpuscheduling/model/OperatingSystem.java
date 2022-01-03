@@ -7,26 +7,30 @@ public class OperatingSystem {
 	public static Queue<Process> processes;
 	public static ArrayList<SchedulingAlgorithm> algorithms;
 	public static int time = 0;
-	public static boolean running = true;
 	
 	public static void init() {
 		processes = RequestGenerator.readProcessData();
 		time = 0;
-		running = true;
 		run();
 	}
 	public static void init(String manualData) {
 		processes = RequestGenerator.readProcessData(manualData);
 		time = 0;
-		running = true;
 		run();
 	}
 	
 	private static void run() {
-		while (running) {
+		while (isRunning()) {
 			checkProcesses();
 			advance();
 		}
+	}
+	
+	private static boolean isRunning() {
+		boolean running = false;
+		for (var algorithm : algorithms)
+			running |= algorithm.hasPendingProcess();
+		return running || !processes.isEmpty();
 	}
 	
 	private static void advance() {
