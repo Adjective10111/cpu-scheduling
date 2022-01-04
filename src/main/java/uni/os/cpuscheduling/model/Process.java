@@ -48,8 +48,11 @@ public class Process {
 	public int getBurstTime() {
 		return burst_time;
 	}
+	public int getExecutionTime() {
+		return execution_time;
+	}
 	public int getRemainingBurstTme(){
-		return burst_time - execution_time;
+		return getBurstTime() - getExecutionTime();
 	}
 	public int getSpanTime() {
 		if (isDone())
@@ -58,11 +61,11 @@ public class Process {
 			// not finished
 			return -1;
 	}
-	public int getWaitingTime() {
-		return (span_time[START] - arrival_time) + (getSpanTime() - burst_time);
-	}
 	public int getResponseTime() {
-		return span_time[START] - arrival_time;
+		return span_time[START] - getArrivalTime();
+	}
+	public int getWaitingTime() {
+		return getResponseTime() + (getSpanTime() - burst_time);
 	}
 	public boolean isDone() {
 		return execution_time == burst_time;
