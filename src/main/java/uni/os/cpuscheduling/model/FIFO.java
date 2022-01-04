@@ -11,26 +11,19 @@ public class FIFO implements SchedulingAlgorithm {
 	private final ArrayList<Process> finished_processes = new ArrayList<>();
 	
 	@Override
-	public void getNewProcess(Process process) {
-		processes.add(new Process(process));
+	public void setRunningProcess(Process process) {
+		running_process = process;
 	}
 	@Override
 	public Process getRunningProcess() {
 		return running_process;
 	}
-	
 	@Override
-	public void selectProcess() {
-		if (!hasPendingProcess())
-			running_process = processes.poll();
-		else if (running_process.isDone()) {
-			finished_processes.add(running_process);
-			running_process = processes.poll();
-		}
+	public Queue<Process> getProcessesQueue() {
+		return processes;
 	}
-	
 	@Override
-	public Process[] getFinishedProcesses() {
-		return finished_processes.toArray(new Process[0]);
+	public ArrayList<Process> getFinishedProcesses() {
+		return finished_processes;
 	}
 }

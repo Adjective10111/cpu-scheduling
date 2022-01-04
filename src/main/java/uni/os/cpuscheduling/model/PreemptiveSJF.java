@@ -2,6 +2,7 @@ package uni.os.cpuscheduling.model;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class PreemptiveSJF implements SchedulingAlgorithm {
 	private final PriorityQueue<Process> processes = new PriorityQueue<>(new RemainingBurstComparator());
@@ -9,19 +10,27 @@ public class PreemptiveSJF implements SchedulingAlgorithm {
 	private final ArrayList<Process> finished_processes = new ArrayList<>();
 	
 	@Override
-	public void getNewProcess(Process process) {
-		processes.add(new Process(process));
+	public void setRunningProcess(Process process) {
+		running_process = process;
 	}
 	@Override
 	public Process getRunningProcess() {
 		return running_process;
 	}
+	@Override
+	public Queue<Process> getProcessesQueue() {
+		return processes;
+	}
+	@Override
+	public ArrayList<Process> getFinishedProcesses() {
+		return finished_processes;
+	}
+	
 	private boolean isRunningProcessTheShortest(){
 		if  (processes.peek() == null)
 			return true;
 		return running_process.getRemainingBurstTme() <= processes.peek().getRemainingBurstTme();
 	}
-	
 	@Override
 	public void selectProcess() {
 		if (!hasPendingProcess())
@@ -34,10 +43,5 @@ public class PreemptiveSJF implements SchedulingAlgorithm {
 			processes.add(running_process);
 			running_process = processes.poll();
 		}
-	}
-	
-	@Override
-	public Process[] getFinishedProcesses() {
-		return finished_processes.toArray(new Process[0]);
 	}
 }

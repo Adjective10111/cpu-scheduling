@@ -2,20 +2,36 @@ package uni.os.cpuscheduling.model;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Queue;
 
 public interface SchedulingAlgorithm {
-	void getNewProcess(Process process);
-	void selectProcess();
+	default void addNewProcess(Process process) {
+		getProcessesQueue().add(process);
+	}
+	
+	void setRunningProcess(Process process);
 	Process getRunningProcess();
 	default boolean hasPendingProcess() {
 		return getRunningProcess() != null;
+	}
+	
+	Queue<Process> getProcessesQueue();
+	ArrayList<Process> getFinishedProcesses();
+	
+	default void selectProcess() {
+		if (!hasPendingProcess())
+			setRunningProcess(getProcessesQueue().poll());
+		else if (getRunningProcess().isDone()) {
+			getFinishedProcesses().add(getRunningProcess());
+			setRunningProcess(getProcessesQueue().poll());
+		}
 	}
 	default void process() {
 		selectProcess();
 		if (hasPendingProcess())
 			Process.execute(getRunningProcess());
 	}
-	Process[] getFinishedProcesses();
 	
 	default double Throughput() {
 		// todo this function is empty
@@ -61,6 +77,6 @@ public interface SchedulingAlgorithm {
 		} catch (InvocationTargetException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
-		return sum / processes.length;
+		return sum / processes.size();
 	}
 }

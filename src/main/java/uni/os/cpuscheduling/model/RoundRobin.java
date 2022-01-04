@@ -2,7 +2,7 @@ package uni.os.cpuscheduling.model;
 
 public class RoundRobin implements SchedulingAlgorithm {
 	@Override
-	public void getNewProcess(Process process) {
+	public void addNewProcess(Process process) {
 	
 	}
 	

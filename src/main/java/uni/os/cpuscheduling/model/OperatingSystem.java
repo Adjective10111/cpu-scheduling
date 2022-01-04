@@ -2,7 +2,6 @@ package uni.os.cpuscheduling.model;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class OperatingSystem {
 	public static PriorityQueue<Process> processes;
@@ -53,7 +52,7 @@ public class OperatingSystem {
 		while (!processes.isEmpty() && processes.peek().getArrivalTime() == time) {
 			Process new_process = processes.poll();
 			for (var algorithm : algorithms)
-				algorithm.getNewProcess(new_process);
+				algorithm.addNewProcess(new_process);
 		}
 	}
 }
