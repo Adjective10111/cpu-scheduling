@@ -1,10 +1,11 @@
 package uni.os.cpuscheduling.model;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class OperatingSystem {
-	public static Queue<Process> processes;
+	public static PriorityQueue<ArrivingProcess> processes;
 	public static ArrayList<SchedulingAlgorithm> algorithms;
 	public static int time = 0;
 	

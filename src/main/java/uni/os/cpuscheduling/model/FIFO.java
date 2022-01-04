@@ -2,22 +2,23 @@ package uni.os.cpuscheduling.model;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class FIFO implements SchedulingAlgorithm {
-	private final Queue<Process> processes;
+	private final PriorityQueue<ArrivingProcess> processes;
 	private Process running_process;
 	private final ArrayList<Process> finished_processes;
 	
 	public FIFO() {
-		processes = new LinkedList<>();
+		processes = new PriorityQueue<>();
 		running_process = null;
 		finished_processes = new ArrayList<>();
 	}
 	
 	@Override
 	public void getNewProcess(Process process) {
-		processes.add(new Process(process));
+		processes.add(new ArrivingProcess(process));
 	}
 	@Override
 	public void selectProcess() {

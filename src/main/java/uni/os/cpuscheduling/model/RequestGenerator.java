@@ -33,7 +33,7 @@ public class RequestGenerator {
 		}
 	}
 	
-	public static Queue<Process> readProcessData() {
+	public static PriorityQueue<ArrivingProcess> readProcessData() {
 		try {
 			var fileProcesses = new File("processes_data.csv");
 			if (!fileProcesses.exists())
@@ -42,36 +42,32 @@ public class RequestGenerator {
 			var readingCSV = new Scanner(fileProcesses);
 			var processes = readProcessData(readingCSV);
 			readingCSV.close();
-			
-			processes.sort(Process::compareTo);
-			return new PriorityQueue<>(processes);
+			return processes;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	public static Queue<Process> readProcessData(String filename) {
+	public static PriorityQueue<ArrivingProcess> readProcessData(String filename) {
 		try {
 			var readingCSV = new Scanner(new File(filename));
 			var processes = readProcessData(readingCSV);
 			readingCSV.close();
-			
-			processes.sort(Process::compareTo);
-			return new PriorityQueue<>(processes);
+			return processes;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-	private static ArrayList<Process> readProcessData(Scanner reader) {
+	private static PriorityQueue<ArrivingProcess> readProcessData(Scanner reader) {
 		// skip the info line
 		reader.nextLine();
-		var processes = new ArrayList<Process>();
+		var processes = new PriorityQueue<ArrivingProcess>();
 		
 		while (reader.hasNextLine()) {
 			var line = reader.nextLine();
 			var info = line.split(",");
-			Process process = new Process(
+			var process = new ArrivingProcess(
 					Integer.parseInt(info[0]),
 					Integer.parseInt(info[1]),
 					Integer.parseInt(info[2]),
@@ -79,8 +75,6 @@ public class RequestGenerator {
 			);
 			processes.add(process);
 		}
-		
-		processes.sort(Process::compareTo);
 		return processes;
 	}
 	

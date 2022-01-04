@@ -1,6 +1,6 @@
 package uni.os.cpuscheduling.model;
 
-public class Process implements Comparable<Process> {
+public class Process {
 	private static int id_generator = 1;
 	private final static int START = 0;
 	private final static int FINISH = 1;
@@ -9,9 +9,9 @@ public class Process implements Comparable<Process> {
 	public final static String GET_RESPONSE_TIME = "getResponseTime";
 	
 	private final int id;
-	public final int arrival_time;
-	private final int priority;
-	private final int burst_time;
+	protected final int arrival_time;
+	protected final int priority;
+	protected final int burst_time;
 	
 	private int execution_time;
 	private final int[ ] span_time;
@@ -43,6 +43,12 @@ public class Process implements Comparable<Process> {
 	public int getPriority() {
 		return priority;
 	}
+	public int getBurstTime() {
+		return burst_time;
+	}
+	public int getRemainingBurstTme(){
+		return burst_time - execution_time;
+	}
 	public int getSpanTime() {
 		if (isDone())
 			return span_time[FINISH] - span_time[START];
@@ -59,7 +65,7 @@ public class Process implements Comparable<Process> {
 	public boolean isDone() {
 		return execution_time == burst_time;
 	}
-	
+
 	public static void execute(Process process) {
 		if (process.execution_time == 0)
 			process.span_time[START] = OperatingSystem.time;
@@ -70,21 +76,48 @@ public class Process implements Comparable<Process> {
 				process.span_time[FINISH] = OperatingSystem.time;
 		}
 	}
+// negative: less than, positive: more than
+}
 
-	public int getRemainingBurstTme(){
-		return burst_time - execution_time;
+class ArrivingProcess extends Process implements Comparable<Process> {
+	public ArrivingProcess(int arrival_time, int priority, int burst_time) {
+		super(arrival_time, priority, burst_time);
 	}
-
+	public ArrivingProcess(int id, int arrival_time, int priority, int burst_time) {
+		super(id, arrival_time, priority, burst_time);
+	}
+	public ArrivingProcess(Process other) {
+		super(other);
+	}
 	@Override
 	public int compareTo(Process other) {
-		return arrival_time - other.arrival_time;
+		return this.getArrivalTime() - other.getArrivalTime();
 	}
-
-	public int compareByBurstTimeTo(Process other) {
-		return burst_time - other.burst_time;
+}
+class PriorityProcess extends Process implements Comparable<Process> {
+	public PriorityProcess(Process other) {
+		super(other);
 	}
-
-	public int compareByRemainingBurstTimeTo(Process other) {
-		return getRemainingBurstTme() - other.getRemainingBurstTme();
+	@Override
+	public int compareTo(Process other) {
+		return this.getPriority() - other.getPriority();
+	}
+}
+class BurstProcess extends Process implements Comparable<Process> {
+	public BurstProcess(Process other) {
+		super(other);
+	}
+	@Override
+	public int compareTo(Process other) {
+		return this.getBurstTime() - other.getBurstTime();
+	}
+}
+class RemainingBurstProcess extends Process implements Comparable<Process> {
+	public RemainingBurstProcess(Process other) {
+		super(other);
+	}
+	@Override
+	public int compareTo(Process other) {
+		return this.getRemainingBurstTme() - other.getRemainingBurstTme();
 	}
 }
