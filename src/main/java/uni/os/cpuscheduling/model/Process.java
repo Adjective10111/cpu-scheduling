@@ -1,5 +1,7 @@
 package uni.os.cpuscheduling.model;
 
+import java.util.Comparator;
+
 public class Process {
 	private static int id_generator = 1;
 	private final static int START = 0;
@@ -78,46 +80,28 @@ public class Process {
 	}
 }
 
-// this < other: -, this == other: 0, this > other: +
-class ArrivingProcess extends Process implements Comparable<Process> {
-	public ArrivingProcess(int arrival_time, int priority, int burst_time) {
-		super(arrival_time, priority, burst_time);
-	}
-	public ArrivingProcess(int id, int arrival_time, int priority, int burst_time) {
-		super(id, arrival_time, priority, burst_time);
-	}
-	public ArrivingProcess(Process other) {
-		super(other);
-	}
+// p1 < p2: -, p1 == p2: 0, p1 > p2: +
+class ArrivalComparator implements Comparator<Process> {
 	@Override
-	public int compareTo(Process other) {
-		return this.getArrivalTime() - other.getArrivalTime();
+	public int compare(Process p1, Process p2) {
+		return p1.getArrivalTime() - p2.getArrivalTime();
 	}
 }
-class PriorityProcess extends Process implements Comparable<Process> {
-	public PriorityProcess(Process other) {
-		super(other);
-	}
+class PriorityComparator implements Comparator<Process> {
 	@Override
-	public int compareTo(Process other) {
-		return this.getPriority() - other.getPriority();
+	public int compare(Process p1, Process p2) {
+		return p1.getPriority() - p2.getPriority();
 	}
 }
-class BurstProcess extends Process implements Comparable<Process> {
-	public BurstProcess(Process other) {
-		super(other);
-	}
+class BurstComparator implements Comparator<Process> {
 	@Override
-	public int compareTo(Process other) {
-		return this.getBurstTime() - other.getBurstTime();
+	public int compare(Process p1, Process p2) {
+		return p1.getBurstTime() - p2.getBurstTime();
 	}
 }
-class RemainingBurstProcess extends Process implements Comparable<Process> {
-	public RemainingBurstProcess(Process other) {
-		super(other);
-	}
+class RemainingBurstComparator implements Comparator<Process> {
 	@Override
-	public int compareTo(Process other) {
-		return this.getRemainingBurstTme() - other.getRemainingBurstTme();
+	public int compare(Process p1, Process p2) {
+		return p1.getRemainingBurstTme() - p2.getRemainingBurstTme();
 	}
 }

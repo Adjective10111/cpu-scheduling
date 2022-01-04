@@ -6,13 +6,13 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class FIFO implements SchedulingAlgorithm {
-	private final PriorityQueue<ArrivingProcess> processes = new PriorityQueue<>();
+	private final Queue<Process> processes = new LinkedList<>();
 	private Process running_process = null;
 	private final ArrayList<Process> finished_processes = new ArrayList<>();
 	
 	@Override
 	public void getNewProcess(Process process) {
-		processes.add(new ArrivingProcess(process));
+		processes.add(new Process(process));
 	}
 	@Override
 	public Process getRunningProcess() {

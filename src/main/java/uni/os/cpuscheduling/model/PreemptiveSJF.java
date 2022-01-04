@@ -2,16 +2,15 @@ package uni.os.cpuscheduling.model;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
-import java.util.Queue;
 
 public class PreemptiveSJF implements SchedulingAlgorithm {
-	private final PriorityQueue<RemainingBurstProcess> processes = new PriorityQueue<>();
-	private RemainingBurstProcess running_process = null;
+	private final PriorityQueue<Process> processes = new PriorityQueue<>(new RemainingBurstComparator());
+	private Process running_process = null;
 	private final ArrayList<Process> finished_processes = new ArrayList<>();
 	
 	@Override
 	public void getNewProcess(Process process) {
-		processes.add(new RemainingBurstProcess(process));
+		processes.add(new Process(process));
 	}
 	@Override
 	public Process getRunningProcess() {

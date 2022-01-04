@@ -19,7 +19,7 @@ public class RequestGenerator {
 		}
 	}
 	private static void generateProcessData(Formatter writer) {
-		writer.format("%s,%s,%s,%s\n", "ID", "ArrivalTime", "Priority", "BurstTime");
+		writer.format("%s,%s,%s,%s\n", "ID", "ArrivalTime", "PriorityComparator", "BurstTime");
 		for (int process_id = 1; process_id <= number_of_processes; process_id++) {
 			int randomPriority = ThreadLocalRandom.current()
 					.nextInt(0, 255 + 1);
@@ -33,7 +33,7 @@ public class RequestGenerator {
 		}
 	}
 	
-	public static PriorityQueue<ArrivingProcess> readProcessData() {
+	public static PriorityQueue<Process> readProcessData() {
 		try {
 			var fileProcesses = new File("processes_data.csv");
 			if (!fileProcesses.exists())
@@ -48,7 +48,7 @@ public class RequestGenerator {
 			return null;
 		}
 	}
-	public static PriorityQueue<ArrivingProcess> readProcessData(String filename) {
+	public static PriorityQueue<Process> readProcessData(String filename) {
 		try {
 			var readingCSV = new Scanner(new File(filename));
 			var processes = readProcessData(readingCSV);
@@ -59,15 +59,15 @@ public class RequestGenerator {
 			return null;
 		}
 	}
-	private static PriorityQueue<ArrivingProcess> readProcessData(Scanner reader) {
+	private static PriorityQueue<Process> readProcessData(Scanner reader) {
 		// skip the info line
 		reader.nextLine();
-		var processes = new PriorityQueue<ArrivingProcess>();
+		var processes = new PriorityQueue<Process>(new ArrivalComparator());
 		
 		while (reader.hasNextLine()) {
 			var line = reader.nextLine();
 			var info = line.split(",");
-			var process = new ArrivingProcess(
+			var process = new Process(
 					Integer.parseInt(info[0]),
 					Integer.parseInt(info[1]),
 					Integer.parseInt(info[2]),
