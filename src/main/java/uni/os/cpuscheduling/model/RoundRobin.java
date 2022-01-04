@@ -1,23 +1,28 @@
 package uni.os.cpuscheduling.model;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class RoundRobin implements SchedulingAlgorithm {
-	@Override
-	public void addNewProcess(Process process) {
+	private final Queue<Process> processes = new LinkedList<>();
+	private Process running_process = null;
+	private final ArrayList<Process> finished_processes = new ArrayList<>();
 	
+	@Override
+	public void setRunningProcess(Process process) {
+		running_process = process;
 	}
-	
 	@Override
-	public void selectProcess() {
-	
+	public Process getRunningProcess() {
+		return running_process;
 	}
-	
 	@Override
-	public void process() {
-	
+	public Queue<Process> getProcessesQueue() {
+		return processes;
 	}
-	
 	@Override
-	public Process[] getFinishedProcesses() {
-		return new Process[0];
+	public ArrayList<Process> getFinishedProcesses() {
+		return finished_processes;
 	}
 }
