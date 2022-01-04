@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>uni.os.cpuscheduling/uni.os.cpuscheduling.HelloApplication</mainClass>
+                            <mainClass>uni.os.cpuscheduling/uni.os.cpuscheduling.CPUSchedulingSimulator</mainClass>
                         </configuration>
                     </execution>
                 </executions>
