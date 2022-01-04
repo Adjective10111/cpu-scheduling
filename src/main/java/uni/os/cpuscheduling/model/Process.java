@@ -76,9 +76,9 @@ public class Process {
 				process.span_time[FINISH] = OperatingSystem.time;
 		}
 	}
-// negative: less than, positive: more than
 }
 
+// this < other: -, this == other: 0, this > other: +
 class ArrivingProcess extends Process implements Comparable<Process> {
 	public ArrivingProcess(int arrival_time, int priority, int burst_time) {
 		super(arrival_time, priority, burst_time);

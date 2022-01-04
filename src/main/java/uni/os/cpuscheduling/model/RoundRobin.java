@@ -17,7 +17,7 @@ public class RoundRobin implements SchedulingAlgorithm {
 	}
 	
 	@Override
-	public Process[] getProcesses() {
+	public Process[] getFinishedProcesses() {
 		return new Process[0];
 	}
 }

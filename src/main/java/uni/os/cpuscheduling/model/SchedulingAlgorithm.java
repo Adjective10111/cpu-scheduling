@@ -6,15 +6,26 @@ import java.lang.reflect.Method;
 public interface SchedulingAlgorithm {
 	void getNewProcess(Process process);
 	void selectProcess();
-	boolean hasPendingProcess();
-	void process();
-	Process[] getProcesses();
+	Process getRunningProcess();
+	default boolean hasPendingProcess() {
+		return getRunningProcess() != null;
+	}
+	default void process() {
+		selectProcess();
+		if (hasPendingProcess())
+			Process.execute(getRunningProcess());
+	}
+	Process[] getFinishedProcesses();
 	
-	default double calcThroughput() {
+	default double Throughput() {
 		// todo this function is empty
 		return 0.0;
 	}
-	default int calcAverageWaitingTime() {
+	default double CPUUtilization() {
+		// todo
+		return 0.0;
+	}
+	default int averageWaitingTime() {
 		try {
 			return calcAverage(Process.class.getMethod(Process.GET_WAITING_TIME));
 		} catch (NoSuchMethodException e) {
@@ -22,7 +33,7 @@ public interface SchedulingAlgorithm {
 			return -1;
 		}
 	}
-	default int calcAverageTurnaroundTime() {
+	default int averageTurnaroundTime() {
 		try {
 			return calcAverage(Process.class.getMethod(Process.GET_SPAN_TIME));
 		} catch (NoSuchMethodException e) {
@@ -30,7 +41,7 @@ public interface SchedulingAlgorithm {
 			return -1;
 		}
 	}
-	default int calcAverageResponseTime() {
+	default int averageResponseTime() {
 		try {
 			return calcAverage(Process.class.getMethod(Process.GET_RESPONSE_TIME));
 		} catch (NoSuchMethodException e) {
@@ -39,9 +50,10 @@ public interface SchedulingAlgorithm {
 		}
 	}
 	private int calcAverage(Method method) {
-		var processes = getProcesses();
-		if (processes == null)
+		var processes = getFinishedProcesses();
+		if (processes == null) {
 			throw new ArrayStoreException();
+		}
 		int sum = 0;
 		try {
 			for (var process : processes)
@@ -51,5 +63,4 @@ public interface SchedulingAlgorithm {
 		}
 		return sum / processes.length;
 	}
-	// todo CPU Utilization
 }
