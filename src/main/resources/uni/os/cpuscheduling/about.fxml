@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -35,6 +36,9 @@
             <Image url="@assets/icons8-home-24.png" />
          </image>
       </ImageView>
-      <Hyperlink layoutX="253.0" layoutY="514.0" text="https://github.com/Adjective10111/cpu-scheduling" />
+      <Hyperlink layoutX="253.0" layoutY="514.0" text="https://github.com/Adjective10111/cpu-scheduling">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></Hyperlink>
    </children>
 </AnchorPane>
