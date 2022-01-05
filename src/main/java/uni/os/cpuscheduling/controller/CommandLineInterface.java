@@ -1,4 +1,4 @@
-package uni.os.cpuscheduling;
+package uni.os.cpuscheduling.controller;
 
 import uni.os.cpuscheduling.model.OperatingSystem;
 import uni.os.cpuscheduling.model.RequestGenerator;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class CLI {
+public class CommandLineInterface {
 	private static String[] args;
 	private static boolean added_algorithms = false;
 	private static ArrayList<String> algorithms = new ArrayList<>(List.of(
@@ -46,7 +46,7 @@ public class CLI {
 					""";
 	
 	public static void launch(String[] args) {
-		CLI.args = args;
+		CommandLineInterface.args = args;
 		for (int index = 0; index < args.length; index++) {
 			if (args[index].charAt(0) == '-')
 				index = handleOption(index);

@@ -4,15 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import uni.os.cpuscheduling.model.OperatingSystem;
-import uni.os.cpuscheduling.model.RequestGenerator;
-import uni.os.cpuscheduling.model.SchedulingAlgorithm;
+import uni.os.cpuscheduling.controller.CommandLineInterface;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.NoSuchElementException;
 
 public class CPUSchedulingSimulator extends Application {
 	@Override
@@ -28,6 +22,6 @@ public class CPUSchedulingSimulator extends Application {
 		if (args.length == 0)
 			launch();
 		else
-			CLI.launch(args);
+			CommandLineInterface.launch(args);
 	}
 }

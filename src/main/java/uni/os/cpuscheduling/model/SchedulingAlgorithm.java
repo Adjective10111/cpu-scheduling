@@ -1,6 +1,6 @@
 package uni.os.cpuscheduling.model;
 
-import uni.os.cpuscheduling.CLI;
+import uni.os.cpuscheduling.controller.CommandLineInterface;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -56,15 +56,15 @@ public class SchedulingAlgorithm {
 		}
 	}
 	public void process() {
-		if (CLI.verbose) {
+		if (CommandLineInterface.verbose) {
 			System.out.println("# " + name());
 		}
 		selectProcess();
 		if (hasPendingProcess()) {
-			if (CLI.verbose)
+			if (CommandLineInterface.verbose)
 				System.out.println("# Running " + running_process.toString(true));
 			Process.execute(running_process);
-		} else if (CLI.verbose)
+		} else if (CommandLineInterface.verbose)
 			System.out.println("# No Running Process");
 	}
 	

@@ -1,10 +1,9 @@
 package uni.os.cpuscheduling.model;
 
-import uni.os.cpuscheduling.CLI;
+import uni.os.cpuscheduling.controller.CommandLineInterface;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 public class OperatingSystem {
@@ -36,14 +35,14 @@ public class OperatingSystem {
 	
 	private static void run() {
 		while (isRunning()) {
-			if (CLI.verbose) {
+			if (CommandLineInterface.verbose) {
 				System.out.println("----------------------------------------");
 				System.out.println("Time: " + time);
 			}
 			checkProcesses();
 			advance();
 		}
-		if (CLI.verbose)
+		if (CommandLineInterface.verbose)
 			System.out.println("----------------------------------------");
 		// todo: display the result
 	}
@@ -52,7 +51,7 @@ public class OperatingSystem {
 		boolean running = false;
 		for (var algorithm : algorithms) {
 			running |= algorithm.hasPendingProcess();
-			if (CLI.verbose)
+			if (CommandLineInterface.verbose)
 				System.out.println(
 						"***************\n" +
 						algorithm +
@@ -78,7 +77,7 @@ public class OperatingSystem {
 		boolean found = false;
 		while (!processes.isEmpty() && processes.peek().getArrivalTime() == time) {
 			Process new_process = processes.poll();
-			if (CLI.verbose) {
+			if (CommandLineInterface.verbose) {
 				if (!found)
 					System.out.println("# New Process(es): ");
 				System.out.println(new_process);
@@ -87,7 +86,7 @@ public class OperatingSystem {
 			for (var algorithm : algorithms)
 				algorithm.addNewProcess(new_process);
 		}
-		if (CLI.verbose) {
+		if (CommandLineInterface.verbose) {
 			if (!found)
 				System.out.println("# No New Process\n");
 			else
