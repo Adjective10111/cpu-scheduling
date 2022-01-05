@@ -21,10 +21,7 @@ public class MainMenuController implements Controller {
 	
 	@FXML
 	void initialize() {
-		start_simulation.setOnAction(actionEvent -> {
-			OperatingSystem.init();
-			changeScene("result-table");
-		});
+		start_simulation.setOnAction(actionEvent -> changeScene("result-table"));
 		generate_processes.setOnAction(actionEvent -> RequestGenerator.generateProcessData());
 		select_algorithms.setOnMouseClicked(mouseEvent -> changeScene("algorithm-selector"));
 		configure_process_generator.setOnMouseClicked(mouseEvent -> changeScene("generator-config"));

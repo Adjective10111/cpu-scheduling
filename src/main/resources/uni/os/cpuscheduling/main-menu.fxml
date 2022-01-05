@@ -31,7 +31,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <ImageView fx:id="about" fitHeight="37.0" fitWidth="37.0" layoutX="508.0" layoutY="313.0">
+      <ImageView fx:id="configure_process_generator" fitHeight="37.0" fitWidth="37.0" layoutX="508.0" layoutY="313.0">
          <image>
             <Image url="@assets/icons8-settings-48.png" />
          </image>
@@ -41,7 +41,7 @@
             <Image url="@assets/icons8-settings-48.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="configure_process_generator" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0">
+      <ImageView fx:id="about" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="14.0">
          <image>
             <Image url="@assets/icons8-info-90.png" />
          </image>
