@@ -8,6 +8,11 @@ public class ChartController implements Controller {
 	@FXML
 	private ImageView back;
 	
+	@FXML
+	void initialize() {
+		back.setOnMouseClicked(mouseEvent -> changeScene("main-menu"));
+	}
+	
 	@Override
 	public Scene getScene() {
 		return this.back.getScene();
