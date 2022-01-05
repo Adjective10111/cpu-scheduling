@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView prefHeight="535.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);">
-         <columns>
-            <TableColumn editable="false" prefWidth="128.0" sortable="false" style="-fx-background-color: #bdc3c7;" styleClass="table-background" text="Alghoritm Name" />
-            <TableColumn editable="false" prefWidth="141.0" resizable="false" sortable="false" style="-fx-background-color: white;" styleClass="table-background" text="Number Of Processes" />
-            <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Time Of Simulation" />
-            <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Throughput" />
-            <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="CPU Utilization" />
-            <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Avg Waiting TIme" />
-            <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Avg Turnaround TIme" />
-            <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Avg Response TIme" />
-         </columns>
-      </TableView>
+      <ScrollPane hbarPolicy="ALWAYS" layoutX="-2.0" prefHeight="539.0" prefWidth="711.0">
+         <content>
+            <TableView prefHeight="535.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);">
+               <columns>
+                  <TableColumn editable="false" prefWidth="128.0" sortable="false" style="-fx-background-color: #bdc3c7;" styleClass="table-background" text="Alghoritm Name" />
+                  <TableColumn editable="false" prefWidth="141.0" resizable="false" sortable="false" style="-fx-background-color: white;" styleClass="table-background" text="Number Of Processes" />
+                  <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Time Of Simulation" />
+                  <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Throughput" />
+                  <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="CPU Utilization" />
+                  <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Avg Waiting TIme" />
+                  <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Avg Turnaround TIme" />
+                  <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Avg Response TIme" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
       <Button alignment="CENTER" layoutX="256.0" layoutY="548.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="194.0" style="-fx-background-color: #35373A;" text="Show The Charts" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
