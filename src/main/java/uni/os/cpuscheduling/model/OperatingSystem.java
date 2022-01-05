@@ -2,9 +2,8 @@ package uni.os.cpuscheduling.model;
 
 import uni.os.cpuscheduling.controller.CommandLineInterface;
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.PriorityQueue;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class OperatingSystem {
 	public static PriorityQueue<Process> processes;
@@ -95,10 +94,37 @@ public class OperatingSystem {
 	}
 	
 	private static void displayResult() {
-	
+		System.out.println("************************************\n" +
+				"Result:");
+		for (var algorithm : algorithms) {
+			System.out.println("------------------------------------");
+			System.out.println(algorithm.name());
+			System.out.println("Throughput: " + algorithm.throughput());
+			System.out.println("CPU Utilization: " + algorithm.CPUUtilization());
+			System.out.println("Average Response time: " + algorithm.averageResponseTime());
+			System.out.println("Average Waiting time: " + algorithm.averageWaitingTime());
+			System.out.println("Average Turnaround time: " + algorithm.averageTurnaroundTime());
+		}
+		System.out.println("************************************");
 	}
 	
 	private static void logResult() {
-	
+		Formatter writer;
+		try {
+			writer = new Formatter("simulationAt_" +
+					Calendar.getInstance().getTime().toString() + ".log");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return;
+		}
+		for (var algorithm : algorithms) {
+			writer.format("------------------------------------\n" +
+					algorithm.name() + '\n' +
+					"Throughput: " + algorithm.throughput() + '\n' +
+					"CPU Utilization: " + algorithm.CPUUtilization() + '\n' +
+					"Average Response time: " + algorithm.averageResponseTime() + '\n' +
+					"Average Waiting time: " + algorithm.averageWaitingTime() + '\n' +
+				"Average Turnaround time: " + algorithm.averageTurnaroundTime() + '\n');
+		}
 	}
 }
