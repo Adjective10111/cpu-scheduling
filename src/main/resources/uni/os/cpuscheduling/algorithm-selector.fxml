@@ -56,9 +56,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <font>
-            <Font size="17.0" />
-         </font>
       </Button>
       <TextField fx:id="time_slice" layoutX="522.0" layoutY="191.0" prefHeight="29.0" prefWidth="100.0" promptText="Time slice: 7" style="-fx-border-radius: 50%;" styleClass="input-fields" />
       <ImageView fx:id="back" fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="14.0">

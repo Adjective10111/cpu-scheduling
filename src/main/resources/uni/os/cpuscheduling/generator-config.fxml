@@ -49,7 +49,7 @@
          </font>
       </Label>
       <TextField fx:id="min_arrival" layoutX="208.0" layoutY="432.0" prefHeight="39.0" prefWidth="179.0" promptText="Minimum Default: 0" style="-fx-border-radius: 50%;" styleClass="input-fields" />
-      <Button fx:id="save" alignment="CENTER" contentDisplay="CENTER" layoutX="208.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="Save Config" textAlignment="CENTER" textFill="#35373a">
+      <Button fx:id="save" alignment="CENTER" contentDisplay="CENTER" layoutX="208.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="116.0" text="Save Config" textAlignment="CENTER" textFill="#35373a">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

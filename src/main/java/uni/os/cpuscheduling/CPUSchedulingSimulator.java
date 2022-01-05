@@ -13,7 +13,7 @@ public class CPUSchedulingSimulator extends Application {
 	public void start(Stage stage) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(CPUSchedulingSimulator.class.getResource("main-menu.fxml"));
 		Scene scene = new Scene(fxmlLoader.load(), 705, 605);
-		stage.setTitle("Hello!");
+		stage.setTitle("CPU Scheduling Simulator");
 		stage.setScene(scene);
 		stage.show();
 	}
