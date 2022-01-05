@@ -10,49 +10,49 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" styleClass="program-background" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.os.cpuscheduling.controller.MainMenuController">
+<AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" styleClass="program-background" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.os.cpuscheduling.controller.AlgorithmSelectorController">
    <children>
-      <Text layoutX="35.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Which Algorithms Do You Want To Use For Simulation">
+      <Text layoutX="25.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Which Algorithms Do You Want To Use For Simulation">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="19.0" />
          </font>
       </Text>
-      <CheckBox layoutX="147.0" layoutY="179.0" mnemonicParsing="false" text="FIFO">
+      <CheckBox fx:id="fifo_option" alignment="CENTER" layoutX="83.0" layoutY="193.0" mnemonicParsing="false" selected="true" text="FIFO">
          <font>
             <Font size="18.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="147.0" layoutY="376.0" mnemonicParsing="false" text="Preemptive Priority">
+      <CheckBox fx:id="preemptive_priority_option" alignment="CENTER" layoutX="83.0" layoutY="390.0" mnemonicParsing="false" selected="true" text="Preemptive Priority">
          <font>
             <Font size="18.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="363.0" layoutY="276.0" mnemonicParsing="false" text="Round Robin">
+      <CheckBox fx:id="round_robin_option" alignment="CENTER" layoutX="366.0" layoutY="193.0" mnemonicParsing="false" selected="true" text="Round Robin">
          <font>
             <Font size="18.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="147.0" layoutY="276.0" mnemonicParsing="false" text="Non-Preemptive SJF">
+      <CheckBox fx:id="non_preemptive_sjf_option" alignment="CENTER" layoutX="366.0" layoutY="291.0" mnemonicParsing="false" selected="true" text="Non-Preemptive SJF">
          <font>
             <Font size="18.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="363.0" layoutY="179.0" mnemonicParsing="false" text="Preemptive SJF">
+      <CheckBox fx:id="preemptive_sjf_option" alignment="CENTER" layoutX="83.0" layoutY="291.0" mnemonicParsing="false" selected="true" text="Preemptive SJF">
          <font>
             <Font size="18.0" />
          </font>
       </CheckBox>
-      <CheckBox layoutX="363.0" layoutY="376.0" mnemonicParsing="false" text="Non-Preemptive Priority">
+      <CheckBox fx:id="non_preemptive_priority_option" alignment="CENTER" layoutX="366.0" layoutY="390.0" mnemonicParsing="false" selected="true" text="Non-Preemptive Priority">
          <font>
             <Font size="18.0" />
          </font>
       </CheckBox>
-      <Button alignment="CENTER" layoutX="343.0" layoutY="488.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #35373A;" text="Start The Simulation" textFill="WHITE">
+      <Button fx:id="start_simulation" alignment="CENTER" layoutX="356.0" layoutY="489.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #35373A;" text="Start The Simulation" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="488.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="   Back" textAlignment="CENTER" textFill="#35373a">
+      <Button fx:id="save_config" alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="489.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="148.0" text="Save Selection" textAlignment="CENTER" textFill="#35373a">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -60,11 +60,16 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <TextField layoutX="513.0" layoutY="275.0" prefHeight="29.0" prefWidth="153.0" promptText="Default Time Quantum: 2" style="-fx-border-radius: 50%;" styleClass="input-fields" />
-      <ImageView fitHeight="19.0" fitWidth="22.0" layoutX="205.0" layoutY="498.0">
+      <TextField fx:id="time_slice" layoutX="522.0" layoutY="191.0" prefHeight="29.0" prefWidth="100.0" promptText="Time slice: 7" style="-fx-border-radius: 50%;" styleClass="input-fields" />
+      <ImageView fx:id="back" fitHeight="39.0" fitWidth="39.0" layoutX="14.0" layoutY="14.0">
          <image>
             <Image url="@assets/back.png" />
          </image>
       </ImageView>
+      <Text fx:id="number_error" fill="RED" layoutX="522.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter a number" wrappingWidth="131.1796875">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

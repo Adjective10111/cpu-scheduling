@@ -6,15 +6,15 @@ import javafx.scene.image.ImageView;
 
 public class About implements Controller {
 	@FXML
-	private ImageView back;
+	private ImageView home;
 	
 	@FXML
 	void initialize() {
-		back.setOnMouseClicked(mouseEvent -> changeScene("main-menu"));
+		home.setOnMouseClicked(mouseEvent -> changeScene("main-menu"));
 	}
 	
 	@Override
 	public Scene getScene() {
-		return this.back.getScene();
+		return this.home.getScene();
 	}
 }

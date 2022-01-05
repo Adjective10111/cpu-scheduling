@@ -20,11 +20,6 @@ public class MainMenuController implements Controller {
 	private ImageView about;
 	
 	@FXML
-	protected void onHelloButtonClick() {
-		start_simulation.setText("Welcome to JavaFX Application!");
-	}
-	
-	@FXML
 	void initialize() {
 		start_simulation.setOnAction(actionEvent -> {
 			OperatingSystem.init();
