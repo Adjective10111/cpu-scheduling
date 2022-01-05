@@ -1,35 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.os.cpuscheduling.controller.MainMenuController">
    <children>
-      <BarChart layoutX="364.0" layoutY="32.0" prefHeight="280.0" prefWidth="325.0" title="Average Turnaround TIme">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis side="LEFT" />
-         </yAxis>
-      </BarChart>
-      <BarChart barGap="1.0" categoryGap="4.0" layoutX="202.0" layoutY="312.0" prefHeight="280.0" prefWidth="325.0" title="Average Response TIme">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis side="LEFT" />
-         </yAxis>
-      </BarChart>
-      <BarChart layoutX="28.0" layoutY="32.0" prefHeight="280.0" prefWidth="325.0" title="Average Waiting TIme">
-         <xAxis>
-            <CategoryAxis side="BOTTOM" />
-         </xAxis>
-         <yAxis>
-            <NumberAxis side="LEFT" />
-         </yAxis>
+      <Button alignment="CENTER" layoutX="387.0" layoutY="533.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="127.0" style="-fx-background-color: #35373A;" text="Show In Table" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="250.0" layoutY="533.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="     Home" textAlignment="CENTER" textFill="#35373a">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <ImageView layoutX="267.0" layoutY="540.0">
+         <image>
+            <Image url="@assets/icons8-home-24.png" />
+         </image>
+      </ImageView>
+      <BarChart layoutX="27.0" layoutY="16.0" prefHeight="495.0" prefWidth="650.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
       </BarChart>
    </children>
 </AnchorPane>

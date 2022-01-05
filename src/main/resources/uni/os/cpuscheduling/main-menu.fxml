@@ -2,10 +2,11 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -19,7 +20,7 @@
             <Font size="43.0" />
          </font>
       </Text>
-      <Text layoutX="231.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mohammad Mahdi Sefatzade">
+      <Text layoutX="231.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MohammadMahdi Sefatzade">
          <font>
             <Font size="20.0" />
          </font>
@@ -30,13 +31,18 @@
          </font>
       </Text>
       <Text layoutX="240.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button alignment="CENTER" layoutX="264.0" layoutY="470.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="194.0" style="-fx-background-color: #35373A;" text="Let's Begin" textFill="WHITE">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="274.0" layoutY="457.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="144.0" text="       Home" textAlignment="CENTER" textFill="#35373a">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <font>
-            <Font size="20.0" />
+            <Font size="21.0" />
          </font>
       </Button>
+      <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="300.0" layoutY="476.0">
+         <image>
+            <Image url="@assets/icons8-home-24.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
