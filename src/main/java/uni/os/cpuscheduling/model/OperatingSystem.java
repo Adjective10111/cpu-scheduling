@@ -43,7 +43,9 @@ public class OperatingSystem {
 		}
 		if (CommandLineInterface.verbose)
 			System.out.println("----------------------------------------");
-		// todo: display the result
+		if (CommandLineInterface.verbose)
+			displayResult();
+		logResult();
 	}
 	
 	private static boolean isRunning() {
