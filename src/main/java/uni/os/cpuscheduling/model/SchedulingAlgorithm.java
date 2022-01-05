@@ -1,5 +1,7 @@
 package uni.os.cpuscheduling.model;
 
+import uni.os.cpuscheduling.CLI;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -54,9 +56,42 @@ public class SchedulingAlgorithm {
 		}
 	}
 	public void process() {
+		if (CLI.verbose) {
+			System.out.println("# " + name());
+		}
 		selectProcess();
-		if (hasPendingProcess())
+		if (hasPendingProcess()) {
+			if (CLI.verbose)
+				System.out.println("# Running " + running_process.toString(true));
 			Process.execute(running_process);
+		} else if (CLI.verbose)
+			System.out.println("# No Running Process");
+	}
+	
+	@Override
+	public String toString() {
+		var stringBuilder = new StringBuilder(name());
+		stringBuilder.append("\nStatus: ");
+		if (hasPendingProcess())
+			stringBuilder.append("Running\nNumber of Processes in Queue: ")
+					.append(processes.size());
+		else
+			stringBuilder.append("Waiting for New Process\n");
+		stringBuilder.append("Number of Completed Processes: ")
+				.append(finished_processes.size()).append("\n");
+		return stringBuilder.toString();
+	}
+	public String name() {
+		String string = null;
+		switch (algorithm) {
+			case FIFO -> string = "Algorithm: FIFO";
+			case PREEMPTIVE_SJF -> string = "Algorithm: Preemptive SJF";
+			case NON_PREEMPTIVE_SJF -> string = "Algorithm: Non-Preemptive SJF";
+			case ROUND_ROBIN -> string = "Algorithm: Round Robin [Time Slice: " + time_slice + "]";
+			case PREEMPTIVE_PRIORITY -> string = "Algorithm: Preemptive Priority";
+			case NON_PREEMPTIVE_PRIORITY -> string = "Algorithm: Non-Preemptive Priority";
+		}
+		return string;
 	}
 	
 	public double Throughput() {

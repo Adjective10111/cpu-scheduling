@@ -70,7 +70,19 @@ public class Process {
 	public boolean isDone() {
 		return execution_time == burst_time;
 	}
-
+	@Override
+	public String toString() {
+		return "Process:\tID = " + id +
+				"\t|\tPriority = " + getPriority() +
+				"\t|\tBurst time = " + getBurstTime();
+	}
+	public String toString(boolean full) {
+		return this +
+				"\t|\tArrival time = " + getArrivalTime() +
+				"\t|\tResponse time = " + getResponseTime() +
+				"\t|\tExecuted time = " + getExecutionTime();
+	}
+	
 	public static void execute(Process process) {
 		if (process.execution_time == 0)
 			process.span_time[START] = OperatingSystem.time;
