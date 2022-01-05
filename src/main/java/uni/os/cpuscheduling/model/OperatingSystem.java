@@ -93,4 +93,12 @@ public class OperatingSystem {
 				System.out.println("# Added successfully\n");
 		}
 	}
+	
+	private static void displayResult() {
+	
+	}
+	
+	private static void logResult() {
+	
+	}
 }
