@@ -12,23 +12,23 @@
 
 <AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.os.cpuscheduling.controller.ResultTableController">
    <children>
-      <ScrollPane hbarPolicy="ALWAYS" layoutX="-2.0" prefHeight="539.0" prefWidth="711.0">
+      <ScrollPane layoutX="-2.0" prefHeight="539.0" prefWidth="711.0">
          <content>
             <TableView prefHeight="535.0" prefWidth="1115.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);">
                <columns>
-                  <TableColumn editable="false" prefWidth="128.0" sortable="false" style="-fx-background-color: #bdc3c7;" styleClass="table-background" text="Alghoritm Name" />
-                  <TableColumn editable="false" prefWidth="141.0" resizable="false" sortable="false" style="-fx-background-color: white;" styleClass="table-background" text="Number Of Processes" />
-                  <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Time Of Simulation" />
-                  <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Throughput" />
-                  <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="CPU Utilization" />
-                  <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Avg Waiting TIme" />
-                  <TableColumn editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Avg Turnaround TIme" />
-                  <TableColumn editable="false" prefWidth="141.0" sortable="false" text="Avg Response TIme" />
+                  <TableColumn fx:id="name" editable="false" prefWidth="128.0" sortable="false" style="-fx-background-color: #bdc3c7;" styleClass="table-background" text="Alghoritm Name" />
+                  <TableColumn fx:id="number_of_process" editable="false" prefWidth="141.0" resizable="false" sortable="false" style="-fx-background-color: white;" styleClass="table-background" text="Number Of Processes" />
+                  <TableColumn fx:id="total_time" editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Time Of Simulation" />
+                  <TableColumn fx:id="throughput" editable="false" prefWidth="141.0" sortable="false" text="Throughput" />
+                  <TableColumn fx:id="cpu_utilization" editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="CPU Utilization" />
+                  <TableColumn fx:id="avg_wait" editable="false" prefWidth="141.0" sortable="false" text="Avg Waiting TIme" />
+                  <TableColumn fx:id="avg_turnaround" editable="false" prefWidth="141.0" sortable="false" style="-fx-background-color: #bdc3c7;" text="Avg Turnaround TIme" />
+                  <TableColumn fx:id="avg_response" editable="false" prefWidth="141.0" sortable="false" text="Avg Response TIme" />
                </columns>
             </TableView>
          </content>
       </ScrollPane>
-      <Button alignment="CENTER" layoutX="354.0" layoutY="555.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="127.0" style="-fx-background-color: #35373A;" text="Show In Chart" textFill="WHITE">
+      <Button fx:id="goto_chart" alignment="CENTER" layoutX="354.0" layoutY="555.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="144.0" style="-fx-background-color: #35373A;" text="Show In Chart" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -36,12 +36,12 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="220.0" layoutY="554.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="     Home" textAlignment="CENTER" textFill="#35373a">
+      <Button fx:id="homeButton" alignment="CENTER" contentDisplay="CENTER" layoutX="220.0" layoutY="554.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="     Home" textAlignment="CENTER" textFill="#35373a">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView layoutX="233.0" layoutY="562.0">
+      <ImageView fx:id="homeImage" layoutX="233.0" layoutY="562.0">
          <image>
             <Image url="@assets/icons8-home-24.png" />
          </image>

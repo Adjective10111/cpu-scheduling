@@ -99,7 +99,7 @@ public class SchedulingAlgorithm {
 		return string;
 	}
 	
-	public double Throughput() {
+	public double throughput() {
 		// todo this function is empty
 		return 0.0;
 	}
