@@ -10,6 +10,8 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class SchedulingAlgorithm {
+	private static final int time_slice_default = 7;
+	
 	private final Queue<Process> processes;
 	private Process running_process = null;
 	private final ArrayList<Process> finished_processes = new ArrayList<>();
@@ -23,8 +25,10 @@ public class SchedulingAlgorithm {
 					processes = new PriorityQueue<>(new ArrivalComparator());
 			case PREEMPTIVE_SJF, NON_PREEMPTIVE_SJF ->
 					processes = new PriorityQueue<>(new RemainingBurstComparator());
-			case ROUND_ROBIN ->
-					processes = new LinkedList<>();
+			case ROUND_ROBIN -> {
+				processes = new LinkedList<>();
+				this.time_slice = time_slice_default;
+			}
 			case PREEMPTIVE_PRIORITY, NON_PREEMPTIVE_PRIORITY ->
 					processes = new PriorityQueue<>(new PriorityComparator());
 			default ->
@@ -46,11 +50,12 @@ public class SchedulingAlgorithm {
 	private void selectProcess() {
 		if (!hasPendingProcess())
 			running_process = processes.poll();
-		else if (running_process.isDone() || algorithm.isPreemptive()) {
-			processes.add(running_process);
+		else if (running_process.isDone()) {
+			finished_processes.add(running_process);
 			running_process = processes.poll();
-		} else if (algorithm == Algorithm.ROUND_ROBIN &&
-				running_process.getExecutionTime() % time_slice == 0) {
+		} else if (algorithm.isPreemptive() ||
+				(algorithm == Algorithm.ROUND_ROBIN &&
+				running_process.getExecutionTime() % time_slice == 0)) {
 			processes.add(running_process);
 			running_process = processes.poll();
 		}

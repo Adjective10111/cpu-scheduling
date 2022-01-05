@@ -64,8 +64,12 @@ public class AlgorithmSelectorController implements Controller {
 		OperatingSystem.algorithms = new ArrayList<>();
 		if (fifo_option.isSelected())
 			OperatingSystem.addAlgorithm("FIFO");
-		if (round_robin_option.isSelected())
-			OperatingSystem.addAlgorithm("RR", Integer.parseInt(time_slice.getText()));
+		if (round_robin_option.isSelected()) {
+			if (time_slice.getText().isEmpty())
+				OperatingSystem.addAlgorithm("RR");
+			else
+				OperatingSystem.addAlgorithm("RR", Integer.parseInt(time_slice.getText()));
+		}
 		if (non_preemptive_priority_option.isSelected())
 			OperatingSystem.addAlgorithm("P");
 		if (preemptive_priority_option.isSelected())
