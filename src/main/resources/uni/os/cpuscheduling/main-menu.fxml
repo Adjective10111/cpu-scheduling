@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="uni.os.cpuscheduling.controller.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="107.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To Our Program">
+         <font>
+            <Font name="System Bold" size="41.0" />
+         </font>
+      </Text>
+      <Text layoutX="213.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Programmers:">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Text>
+      <Text layoutX="231.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mohammad Mahdi Sefatzade">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="231.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mahdi Naseri Majd">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="240.0" layoutY="447.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button alignment="CENTER" layoutX="264.0" layoutY="470.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="194.0" style="-fx-background-color: #35373A;" text="Let's Begin" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

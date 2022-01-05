@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.os.cpuscheduling.controller.HelloController">
+   <children>
+      <BarChart layoutX="364.0" layoutY="32.0" prefHeight="280.0" prefWidth="325.0" title="Average Turnaround TIme">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <BarChart barGap="1.0" categoryGap="4.0" layoutX="202.0" layoutY="312.0" prefHeight="280.0" prefWidth="325.0" title="Average Response TIme">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+      <BarChart layoutX="28.0" layoutY="32.0" prefHeight="280.0" prefWidth="325.0" title="Average Waiting TIme">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

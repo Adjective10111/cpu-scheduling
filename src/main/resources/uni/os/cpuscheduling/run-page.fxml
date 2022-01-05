@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="605.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);" styleClass="program-background" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uni.os.cpuscheduling.controller.HelloController">
+   <children>
+      <Text layoutX="35.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose Which Algorithms Do You Want To Use For Simulation">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <CheckBox layoutX="147.0" layoutY="179.0" mnemonicParsing="false" text="FIFO">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="147.0" layoutY="376.0" mnemonicParsing="false" text="Preemptive Priority">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="363.0" layoutY="276.0" mnemonicParsing="false" text="Round Robin">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="147.0" layoutY="276.0" mnemonicParsing="false" text="Non-Preemptive SJF">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="363.0" layoutY="179.0" mnemonicParsing="false" text="Preemptive SJF">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="363.0" layoutY="376.0" mnemonicParsing="false" text="Non-Preemptive Priority">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <Button alignment="CENTER" layoutX="343.0" layoutY="488.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="194.0" style="-fx-background-color: #35373A;" text="Start The Simulation" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="488.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="108.0" text="Back" textAlignment="CENTER" textFill="#35373a">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField layoutX="513.0" layoutY="275.0" prefHeight="29.0" prefWidth="153.0" promptText="Default Time Quantum: 2" style="-fx-border-radius: 50%;" styleClass="input-fields" />
+   </children>
+</AnchorPane>
