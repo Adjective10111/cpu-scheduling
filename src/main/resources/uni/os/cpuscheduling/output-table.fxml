@@ -9,7 +9,7 @@
    <children>
       <ScrollPane hbarPolicy="ALWAYS" layoutX="-2.0" prefHeight="539.0" prefWidth="711.0">
          <content>
-            <TableView prefHeight="535.0" prefWidth="705.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);">
+            <TableView prefHeight="535.0" prefWidth="1115.0" style="-fx-background-color: linear-gradient(to bottom right, #bdc3c7, #2c3e50);">
                <columns>
                   <TableColumn editable="false" prefWidth="128.0" sortable="false" style="-fx-background-color: #bdc3c7;" styleClass="table-background" text="Alghoritm Name" />
                   <TableColumn editable="false" prefWidth="141.0" resizable="false" sortable="false" style="-fx-background-color: white;" styleClass="table-background" text="Number Of Processes" />
