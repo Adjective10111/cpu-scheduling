@@ -1,11 +1,12 @@
 package uni.os.cpuscheduling.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-public class MainMenuController {
+public class MainMenuController implements Controller {
 	@FXML
 	private Button start_simulation;
 	@FXML
@@ -20,5 +21,10 @@ public class MainMenuController {
 	@FXML
 	protected void onHelloButtonClick() {
 		start_simulation.setText("Welcome to JavaFX Application!");
+	}
+	
+	@Override
+	public Scene getScene() {
+		return this.about.getScene();
 	}
 }
